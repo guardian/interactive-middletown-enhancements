@@ -4,6 +4,12 @@
 // @import "general";
 // @import "share";
 
+
+.content-footer {
+	display: none;
+}
+
+
 // add quotes to standfirst
 .content__standfirst--explore p:nth-child(2):before {
 	content: '';
@@ -17,6 +23,7 @@
 figure.element-interactive[data-interactive$="enhance-middletown/boot.js"] {
 	display: none;
 }
+
 
 .series-identity-explore__container {
 	padding-top: 3px;
@@ -95,12 +102,12 @@ figure.element-interactive[data-interactive$="enhance-middletown/boot.js"] {
 }
 
 .explore-series-standfirst .content__standfirst--explore p {
-	font-size: 28px;
-	line-height: 28px;
+	font-size: 32px;
+	line-height: 32px;
 }
 .explore-series-headline .explore-series-headline__content {
-	font-size: 36px;
-	line-height: 36px;
+	font-size: 38px;
+	line-height: 38px;
 }
 
 .sidebar-overlay {
@@ -111,7 +118,7 @@ figure.element-interactive[data-interactive$="enhance-middletown/boot.js"] {
 		transition: all 200ms;
 		position: fixed;
 		z-index: 100;
-		background-color: rgba(51,51,51,0.9);
+		background-color: rgba(51,51,51,0.95);
 		top: 0;
 		left: 0;
 		right: 0;
@@ -127,12 +134,14 @@ figure.element-interactive[data-interactive$="enhance-middletown/boot.js"] {
 		overflow: scroll;
 		transition: all 300ms;
 		transform: translateX(100%);
-		img {
+		.series-page {
 			display: block;
 			width: 375px;
+			height: 100%;
+			border: 0;
 		}
 	}
-	&.on {
+	.series-page-overlay-on & {
 		visibility: visible;
 		.sidebar-overlay__overlay {
 			opacity: 1;
@@ -141,6 +150,12 @@ figure.element-interactive[data-interactive$="enhance-middletown/boot.js"] {
 			transform: translateX(0);
 		}
 	}
+}
+// not working??
+body.series-page-overlay-on {
+	overflow-x: hidden !important;
+	overflow-y: hidden !important;
+	overflow: hidden !important;
 }
 
 
@@ -152,7 +167,7 @@ figure.element-interactive[data-interactive$="enhance-middletown/boot.js"] {
 	line-height: 20px;
 	font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
 	position: relative;
-	top: 30px;
+	top: 44px;
 	@include mq(mobileLandscape) {
 		padding-left: 3%;
 	}
@@ -164,12 +179,17 @@ figure.element-interactive[data-interactive$="enhance-middletown/boot.js"] {
 	.part,
 	.get-involved {
 		border-left: 1px solid #f6f6f6;
-		width: 175px;
 		margin-right: 5px;
 		height: 64px;
 		display: inline-block;
 		padding-left: 10px;
 		vertical-align: top;
+		width: auto;
+		color: #fff;
+		text-decoration: none;
+		@include mq(mobileLandscape) {
+			width: 175px;
+		}
 	}
 	.why {
 		display: inline-block;
@@ -196,6 +216,10 @@ figure.element-interactive[data-interactive$="enhance-middletown/boot.js"] {
 		}
 	}
 	.get-involved {
+		display: none;
+		@include mq(tablet) {
+			display: inline-block;
+		}
 		font-weight: 500;
 		&:after {
 			content: '';
@@ -208,7 +232,7 @@ figure.element-interactive[data-interactive$="enhance-middletown/boot.js"] {
 			height: 29px;
 			margin-left: 5px;
 			background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2223%22%20height%3D%2223%22%20viewBox%3D%22398%20209%2023%2023%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20fill%3D%22%234BC6DF%22%20fill-rule%3D%22evenodd%22%20cx%3D%22409.5%22%20cy%3D%22220.5%22%20r%3D%2211.5%22%2F%3E%3Cpath%20stroke%3D%22%23F6F6F6%22%20stroke-width%3D%22.5%22%20fill%3D%22%23F6F6F6%22%20fill-rule%3D%22evenodd%22%20d%3D%22M403.5%20221.05h9.97l-3.9%204.92.5.53%205.43-5.73v-.54l-5.43-5.73-.5.53%203.9%204.92h-9.97z%22%2F%3E%3C%2Fsvg%3E');
-			// transform: scale(0.9);
+			transform: scale(0.9);
 			transition: all 300ms;
 		}
 	}
@@ -216,6 +240,8 @@ figure.element-interactive[data-interactive$="enhance-middletown/boot.js"] {
 
 .boot_newsletter {
 	padding-top: 0;
+	border-top: 1px solid #dedede;
+	// padding-top: 25px;
 	padding-bottom: 50px;
 	h5 {
 		font-size: 25px;
@@ -234,6 +260,7 @@ figure.element-interactive[data-interactive$="enhance-middletown/boot.js"] {
 		label {
 			font-family: "Guardian Sans Web", sans-serif;
 			font-size: 16px;
+			font-weight: 600;
 			padding-bottom: 8px;
 			display: block;
 		}
