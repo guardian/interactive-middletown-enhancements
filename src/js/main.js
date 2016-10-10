@@ -56,7 +56,7 @@ export function init(dom, context, config, mediator) {
 
 
     headlineContainer.appendChild(seriesPageItem);
-    textBody.insertBefore(linkItem, textBody.childNodes[26]);
+    textBody.insertBefore(linkItem, textBody.childNodes[29]);
     textBody.insertBefore(atomItem, textBody.childNodes[4]);
     textBody.insertBefore(overlayItem, textBody.childNodes[0]);
 
