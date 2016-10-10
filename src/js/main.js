@@ -37,7 +37,7 @@ export function init(dom, context, config, mediator) {
     var linkItem = document.createElement("a");
     // add link https://viewer.gutools.co.uk/proxy/preview/membership/2016/oct/10/middletown-america-what-issues-will-decide-the-election#noads
     linkItem.classList.add('sidebar-issues');
-    linkItem.innerHTML = 'Middletown America<br>How can you get involved with this project?';
+    linkItem.innerHTML = 'The view from Middletown<br>How you can get involved with this project';
 
     var seriesPageItem = document.createElement("div");
     seriesPageItem.classList.add('series-page-link');
