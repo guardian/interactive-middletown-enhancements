@@ -260,7 +260,6 @@ body.series-page-overlay-on {
 		label {
 			font-family: "Guardian Sans Web", sans-serif;
 			font-size: 16px;
-			font-weight: 600;
 			padding-bottom: 8px;
 			display: block;
 		}
@@ -279,7 +278,7 @@ body.series-page-overlay-on {
 			margin-right: 8px;
 			margin-left: -1px;
 		}
-		input[type='button'] {
+		input[type='submit'] {
 			background-color: #005689;
 			border: 1px solid #005689;
 			color: #f6f6f6;
