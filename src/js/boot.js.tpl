@@ -13,7 +13,7 @@ define([], function() {
         boot: function(el, context, config, mediator) {
 
             // Loading message while we fetch JS / CSS
-            el.innerHTML = '<div style="font-size: 24px; text-align: center; padding: 72px 0; font-family: \'Guardian Egyptian Web\',Georgia,serif;">Loading…</div>';
+            el.innerHTML = '';
 
             config = {
                 'assetPath': '<%= assetPath %>'
