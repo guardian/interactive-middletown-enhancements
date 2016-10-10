@@ -23,6 +23,13 @@ export function init(dom, context, config, mediator) {
   });
 
 
+  // Check if this is the callout page
+  if (window.location.href.indexOf('muncie-voters-tell-us-which-issues-will-decide-the-election')>0) {
+    var isCalloutPage = true;
+  } else {
+    var isCalloutPage = false;
+  }
+
 
   // timeout prevents a flash of unstyled elements
   setTimeout(function() {
@@ -45,22 +52,26 @@ export function init(dom, context, config, mediator) {
 
     var overlayItem = document.createElement("div");
     overlayItem.classList.add('sidebar-overlay');
-    overlayItem.innerHTML = "<div class='sidebar-overlay__overlay'></div><div class='sidebar-overlay__page'><iframe class='series-page' src='https://preview.gutools.co.uk/membership/ng-interactive/2016/oct/10/the-view-from-middletown-why-are-we-covering-this-strory#noads'></iframe></div>";
+    overlayItem.innerHTML = "<div class='sidebar-overlay__overlay'></div><div class='sidebar-overlay__close'><svg width='42' height='42' viewBox='498 -4 42 42' xmlns='http://www.w3.org/2000/svg'><g fill='none' fill-rule='evenodd' transform='translate(498 -4)'><circle fill='#FFF' cx='21' cy='21' r='21'/><path fill='#00456E' d='M21.02 23.04l8.7 7.96L31 29.7 23.06 21 31 12.3 29.7 11l-8.68 7.96-8.73-7.93-1.3 1.3L18.96 21 11 29.68l1.3 1.3'/></g></svg></div><div class='sidebar-overlay__page'><iframe class='series-page' src='https://preview.gutools.co.uk/membership/ng-interactive/2016/oct/10/the-view-from-middletown-why-are-we-covering-this-strory#noads'></iframe></div>";
 
     // to-do update with spreadsheet text
     var newsletterItem = document.createElement("div");
     newsletterItem.classList.add('boot_newsletter');
-    newsletterItem.innerHTML = "<h5>Coming on Thursday 13 November</h5><p>Gary will ipsum aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><form method='post' novalidate action='https://guardiannewsampampmedia.formstack.com/forms/index.php' class='fsForm fsSingleColumn fsMaxCol1' id='fsForm2490271'><input type='hidden' name='form' value='2490271' /><input type='hidden' name='viewkey' value='tOfqZ3Kxj2' /><input type='hidden' name='password' value='' /><input type='hidden' name='hidden_fields' id='hidden_fields2490271' value='' /><input type='hidden' name='fspublicsession' id='session_id2490271' value='' /><input type='hidden' name='incomplete' id='incomplete2490271' value='' /><input type='hidden' name='incomplete_email' id='incomplete_email2490271' value='' /><input type='hidden' name='incomplete_password' id='incomplete_password2490271' /><input type='hidden' name='referrer' id='referrer2490271' value='' /><input type='hidden' name='referrer_type' id='referrer_type2490271' value='link' /><input type='hidden' name='_submit' value='1' /><input type='hidden' name='style_version' value='3' /><input type='hidden' id='fsLatitude' name='latitude' value='' /><input type='hidden' id='fsLongitude' name='longitude' value='' /><input type='hidden' id='viewparam' name='viewparam' value='551498' /><input type='hidden' id='analytics' name='analytics' value='' /><input type='hidden' id='fsSaveResumePassword2490271' value='1' /><label id='label46135110' class='fsLabel fsRequiredLabel' for='field46135110'>Sign up for an email alert when new articles are published</label><input type='email' placeholder='Your email' id='field46135110' name='field46135110' required='required' value='' class='fsField fsFormatEmail fsRequired' aria-required='true' /><input id='fsSubmitButton2490271' class='fsSubmitButton' type='submit' value='Subscribe' data-link-name='middletown : newsletter sign up' /></form>";
+    newsletterItem.innerHTML = "<h5>Coming on Thursday 13 October</h5><p>Gary will ipsum aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><form method='post' novalidate action='https://guardiannewsampampmedia.formstack.com/forms/index.php' class='fsForm fsSingleColumn fsMaxCol1' id='fsForm2490271'><input type='hidden' name='form' value='2490271' /><input type='hidden' name='viewkey' value='tOfqZ3Kxj2' /><input type='hidden' name='password' value='' /><input type='hidden' name='hidden_fields' id='hidden_fields2490271' value='' /><input type='hidden' name='fspublicsession' id='session_id2490271' value='' /><input type='hidden' name='incomplete' id='incomplete2490271' value='' /><input type='hidden' name='incomplete_email' id='incomplete_email2490271' value='' /><input type='hidden' name='incomplete_password' id='incomplete_password2490271' /><input type='hidden' name='referrer' id='referrer2490271' value='' /><input type='hidden' name='referrer_type' id='referrer_type2490271' value='link' /><input type='hidden' name='_submit' value='1' /><input type='hidden' name='style_version' value='3' /><input type='hidden' id='fsLatitude' name='latitude' value='' /><input type='hidden' id='fsLongitude' name='longitude' value='' /><input type='hidden' id='viewparam' name='viewparam' value='551498' /><input type='hidden' id='analytics' name='analytics' value='' /><input type='hidden' id='fsSaveResumePassword2490271' value='1' /><label id='label46135110' class='fsLabel fsRequiredLabel' for='field46135110'>Sign up for an email alert when new articles are published</label><input type='email' placeholder='Your email' id='field46135110' name='field46135110' required='required' value='' class='fsField fsFormatEmail fsRequired' aria-required='true' /><input id='fsSubmitButton2490271' class='fsSubmitButton' type='submit' value='Subscribe' data-link-name='middletown : newsletter sign up' /></form>";
 
 
-
-
-    headlineContainer.appendChild(seriesPageItem);
-    textBody.insertBefore(linkItem, textBody.childNodes[29]);
     textBody.insertBefore(atomItem, textBody.childNodes[4]);
-    textBody.insertBefore(overlayItem, textBody.childNodes[0]);
 
-    textBody.insertBefore(newsletterItem, textBody.childNodes[textBody.childNodes.length]);
+    if (!isCalloutPage) {
+      textBody.insertBefore(newsletterItem, textBody.childNodes[textBody.childNodes.length]);
+      headlineContainer.appendChild(seriesPageItem);
+      textBody.insertBefore(overlayItem, textBody.childNodes[0]);
+      textBody.insertBefore(linkItem, textBody.childNodes[29]);
+
+      document.querySelector('.content__standfirst--explore').classList.add('quote');
+    }
+
+
 
 
     document.querySelector('.series-page-link .why').onclick = function() {

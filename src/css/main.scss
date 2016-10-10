@@ -1,3 +1,5 @@
+
+
 // @import "fonts";
 // @import "palette";
 @import "mq";
@@ -11,7 +13,7 @@
 
 
 // add quotes to standfirst
-.content__standfirst--explore p:nth-child(2):before {
+.content__standfirst--explore.quote p:nth-child(2):before {
 	content: '';
 	display: inline-block;
 	width: 39px;
@@ -117,8 +119,8 @@ figure.element-interactive[data-interactive$="enhance-middletown/boot.js"] {
 	line-height: 24px;
 
 	@include mq(tablet){
-		font-size: 38px;
-		line-height: 38px;
+		font-size: 32px;
+		line-height: 32px;
 	}
 
 }
@@ -146,19 +148,34 @@ figure.element-interactive[data-interactive$="enhance-middletown/boot.js"] {
 		right: 0;
 		bottom: 0;
 	}
+	&__close {
+		width: 42px;
+		height: 42px;
+		transition: all 300ms;
+		transform: scale(0.6);
+		opacity: 0;
+		position: fixed;
+		top: 8px;
+		right: -42px;
+		z-index: 120;
+		cursor: pointer;
+	}
 	&__page {
 		position: fixed;
 		z-index: 110;
 		top: 0;
 		bottom: 0;
 		right: 0;
-		width: 375px;
+		width: 100%;
+		@include mq(mobileLandscape) {
+			width: 375px;
+		}
 		overflow: scroll;
 		transition: all 300ms;
 		transform: translateX(100%);
 		.series-page {
 			display: block;
-			width: 375px;
+			width: 100%;
 			height: 100%;
 			border: 0;
 		}
@@ -167,6 +184,15 @@ figure.element-interactive[data-interactive$="enhance-middletown/boot.js"] {
 		visibility: visible;
 		.sidebar-overlay__overlay {
 			opacity: 1;
+		}
+		.sidebar-overlay__close {
+			transform: scale(1) translateX(52px);
+			opacity: 1;
+			right: 100%;
+			@include mq(mobileLandscape) {
+				transform: scale(1) translateX(0);
+				right: 354px;
+			}
 		}
 		.sidebar-overlay__page {
 			transform: translateX(0);
@@ -190,7 +216,7 @@ body.series-page-overlay-on {
 	font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
 	position: relative;
 	top: 12px;
-	@include mq(mobileLandscape) {
+	@include mq(tablet) {
 		padding-left: 3%;
 		top: 44px;
 	}
@@ -198,7 +224,7 @@ body.series-page-overlay-on {
 		font-weight: 700;
 		display: inline-block;
 
-		@include mq(mobileLandscape){
+		@include mq(tablet){
 			display: block;
 		}
 
@@ -209,12 +235,13 @@ body.series-page-overlay-on {
 		border: none;
 		margin-right: 5px;
 		height: 20px;
-		display: inline-block;
+		display: block;
 		vertical-align: top;
 		width: auto;
 		color: #fff;
 		text-decoration: none;
-		@include mq(mobileLandscape) {
+		@include mq(tablet) {
+			display: inline-block;
 			width: 175px;
 			border-left: 1px solid #f6f6f6;
 			padding-left: 10px;
@@ -222,7 +249,6 @@ body.series-page-overlay-on {
 		}
 	}
 	.why {
-		display: inline-block;
 		cursor: pointer;
 		font-weight: 500;
 		&:after {
@@ -246,10 +272,6 @@ body.series-page-overlay-on {
 		}
 	}
 	.get-involved {
-		display: none;
-		@include mq(tablet) {
-			display: inline-block;
-		}
 		font-weight: 500;
 		&:after {
 			content: '';
@@ -415,7 +437,7 @@ body.series-page-overlay-on {
 		min-height: 672px;
 	}
 }
-.content--explore-series-article .immersive-main-media__media {
+.immersive-header-container--explore-series .content--explore-series-article .immersive-main-media__media {
 	@include mq($until: mobileLandscape) {
 		height: 90%;
 	}
