@@ -72,16 +72,18 @@ figure.element-interactive[data-interactive$="enhance-middletown/boot.js"] {
 	}
 }
 
-
 .content__article-body .sidebar-issues {
-	margin: 28px 0;
+	margin: 16px 0 0;
+	padding-bottom: 16px;
 	position: relative;
 	cursor: pointer;
+	display: block;
 	@include mq(mobileLandscape) {
 		max-width: 300px;
 		float: left;
 		margin-right: 20px;
-		margin-top: -8px;
+		margin-top: -5px;
+		display: block;
 	}
 	@include mq(desktop) {
 		z-index: 1;
@@ -100,7 +102,16 @@ figure.element-interactive[data-interactive$="enhance-middletown/boot.js"] {
 	line-height: 20px;
 	color: #005689;
 	padding-top: 7px;
-	border-top: 2px solid #4BC6DF;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		width: 80px;
+		height: 2px;
+		background-color: #4BC6DF;
+	}
 
 	&:after {
 		content: '';
@@ -293,8 +304,6 @@ body.series-page-overlay-on {
 .boot_newsletter {
 	padding-top: 0;
 	border-top: 1px solid #dedede;
-	// padding-top: 25px;
-	padding-bottom: 50px;
 	h5 {
 		font-size: 25px;
 		line-height: 26px;
@@ -306,7 +315,7 @@ body.series-page-overlay-on {
 	}
 	form {
 		border-top: 1px solid #94B1CA;
-		padding: 15px 10px;
+		padding: 15px 10px 20px;
 		margin-top: 15px;
 		background-color: #EEF5FF;
 		label {
@@ -314,6 +323,7 @@ body.series-page-overlay-on {
 			font-size: 16px;
 			padding-bottom: 8px;
 			display: block;
+			font-weight: 600;
 		}
 		input {
 			font-family: "Guardian Sans Web", sans-serif;
@@ -329,11 +339,36 @@ body.series-page-overlay-on {
 			border: 1px solid #94B1CA;
 			margin-right: 8px;
 			margin-left: -1px;
+			width: 193px;
 		}
 		input[type='submit'] {
 			background-color: #005689;
 			border: 1px solid #005689;
 			color: #f6f6f6;
+			width: 220px;
+		}
+		.marketing {
+			display: block;
+			padding-top: 12px;
+			input {
+				display: inline-block;
+				margin: 5px 4px 0 2px;
+				width: 16px;
+				height: 16px;
+			}
+			label {
+				font-weight: 400;
+			}
+		}
+		p {
+			margin: -8px 0 12px;
+			font-family: "Guardian Sans Web", sans-serif;
+			font-size: 16px;
+			color: #767676;
+			a {
+				color: inherit;
+				text-decoration: none;
+			}
 		}
 	}
 }
