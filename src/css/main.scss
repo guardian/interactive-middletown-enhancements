@@ -8,7 +8,10 @@
 
 
 .content-footer {
-	display: none;
+	& > aside,
+	& > section {
+		display: none;
+	}
 }
 
 
@@ -178,6 +181,9 @@ figure.element-interactive[data-interactive$="enhance-middletown/boot.js"] {
 		bottom: 0;
 		right: 0;
 		width: 100%;
+		height: 100%;
+		overflow: scroll;
+		background-color: #fff;
 		@include mq(mobileLandscape) {
 			width: 375px;
 		}
@@ -187,7 +193,7 @@ figure.element-interactive[data-interactive$="enhance-middletown/boot.js"] {
 		.series-page {
 			display: block;
 			width: 100%;
-			height: 100%;
+			height: 2700px;
 			border: 0;
 		}
 	}
@@ -215,6 +221,13 @@ body.series-page-overlay-on {
 	overflow-x: hidden !important;
 	overflow-y: hidden !important;
 	overflow: hidden !important;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 100%;
+	width: 100%;
 }
 
 
@@ -300,6 +313,21 @@ body.series-page-overlay-on {
 		}
 	}
 }
+
+// fix in-article video caption
+.content__article-body .element-video--explore {
+	overflow: visible;
+	& figcaption a {
+		max-width: 205px;
+	}
+}
+
+// fix header video (temporary)
+.content--explore-series-article.explore--video {
+	height: 640px !important;
+	min-height: auto !important;
+}
+
 
 .boot_newsletter {
 	padding-top: 0;

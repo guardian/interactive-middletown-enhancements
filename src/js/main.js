@@ -17,8 +17,8 @@ export function init(dom, context, config, mediator) {
       crossOrigin: true,
       success: function(resp) {
           data = resp;
-          console.log('hello json');
-          console.log(data);
+          // console.log('hello json');
+          // console.log(data);
       }
   });
 
@@ -49,7 +49,7 @@ export function init(dom, context, config, mediator) {
 
     var seriesPageItem = document.createElement("div");
     seriesPageItem.classList.add('series-page-link');
-    seriesPageItem.innerHTML = "<div class='part'><strong>Part 1</strong> of a 9 part series</div><div class='why'>Why are we covering this?</div><a class='get-involved' href='https://www.theguardian.com/membership/2016/oct/11/muncie-voters-tell-us-which-issues-will-decide-the-election'>Get involved with this project</a>";
+    seriesPageItem.innerHTML = "<div class='part'><strong>Part 1</strong> of a 9 part series</div><div class='why'>Why are we covering this?</div><a class='get-involved' href='https://www.theguardian.com/membership/2016/oct/11/us-election-gary-younge-muncie-indiana'>Get involved with this project</a>";
 
     var overlayItem = document.createElement("div");
     overlayItem.classList.add('sidebar-overlay');
@@ -72,14 +72,24 @@ export function init(dom, context, config, mediator) {
     }
 
 
-
+    [].forEach.call(document.querySelectorAll('.content__series-label__link'), function(link) {
+      link.setAttribute('href', 'https://www.theguardian.com/membership/ng-interactive/2016/oct/11/view-middletown-gary-younge-us-presidential-election');
+    });
 
     document.querySelector('.series-page-link .why').onclick = function() {
-      document.querySelector('body').classList.add('series-page-overlay-on');
+      if (is_touch_device()) {
+        window.location = 'https://www.theguardian.com/membership/ng-interactive/2016/oct/11/view-middletown-gary-younge-us-presidential-election';
+      } else {
+        document.querySelector('body').classList.add('series-page-overlay-on');
+      }
     }
     document.querySelector('.sidebar-atom .panel').onclick = function(e) {
       e.preventDefault();
-      document.querySelector('body').classList.add('series-page-overlay-on');
+      if (is_touch_device()) {
+        window.location = 'https://www.theguardian.com/membership/ng-interactive/2016/oct/11/view-middletown-gary-younge-us-presidential-election';
+      } else {
+        document.querySelector('body').classList.add('series-page-overlay-on');
+      }
     }
 
     document.querySelector('.sidebar-overlay__overlay').onclick = function() {
@@ -92,6 +102,11 @@ export function init(dom, context, config, mediator) {
 
   }, 100);
 
+
+  function is_touch_device() {
+    return 'ontouchstart' in window        // works on most browsers
+        || navigator.maxTouchPoints;       // works on IE10/11 and Surface
+  };
 
 
 }
