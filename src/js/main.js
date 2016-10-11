@@ -42,13 +42,13 @@ export function init(dom, context, config, mediator) {
     atomItem.innerHTML = "<div class='text'><p><strong>The view from Middletown</strong>In this twice-weekly series ahead of the presidential election, Gary Younge spends a month in the mid-western town of Muncie, Indiana – traditionally viewed as emblematic of middle America. He’ll ask how this small town is dealing with this big moment, and what we can learn about the electorate’s view of the political class from citizens here, who voted for both Donald Trump and Bernie Sanders in the primaries. Gary is interested in what people might think, not just how they vote – and invites you to contribute to, guide and help shape this series.</p><a class='panel' href=''>Learn more about this series</a><a class='link' href='https://membership.theguardian.com/'>Support our journalism. Become a Member</a></div>";
 
     var linkItem = document.createElement("a");
-    // add link https://viewer.gutools.co.uk/proxy/preview/membership/2016/oct/10/middletown-america-what-issues-will-decide-the-election#noads
     linkItem.classList.add('sidebar-issues');
+    linkItem.setAttribute('href', 'https://www.theguardian.com/membership/2016/oct/11/muncie-voters-tell-us-which-issues-will-decide-the-election');
     linkItem.innerHTML = 'The view from Middletown<br>How you can get involved with this project';
 
     var seriesPageItem = document.createElement("div");
     seriesPageItem.classList.add('series-page-link');
-    seriesPageItem.innerHTML = "<div class='part'><strong>Part 1</strong> of a 9 part series</div><div class='why'>Why are we covering this?</div><a class='get-involved' href='https://viewer.gutools.co.uk/proxy/preview/membership/2016/oct/10/middletown-america-what-issues-will-decide-the-election#noads'>Get involved with this project</a>";
+    seriesPageItem.innerHTML = "<div class='part'><strong>Part 1</strong> of a 9 part series</div><div class='why'>Why are we covering this?</div><a class='get-involved' href='https://www.theguardian.com/membership/2016/oct/11/muncie-voters-tell-us-which-issues-will-decide-the-election'>Get involved with this project</a>";
 
     var overlayItem = document.createElement("div");
     overlayItem.classList.add('sidebar-overlay');
@@ -66,7 +66,7 @@ export function init(dom, context, config, mediator) {
       textBody.insertBefore(newsletterItem, textBody.childNodes[textBody.childNodes.length]);
       headlineContainer.appendChild(seriesPageItem);
       textBody.insertBefore(overlayItem, textBody.childNodes[0]);
-      textBody.insertBefore(linkItem, textBody.childNodes[29]);
+      textBody.insertBefore(linkItem, textBody.childNodes[20]);
 
       document.querySelector('.content__standfirst--explore').classList.add('quote');
     }
