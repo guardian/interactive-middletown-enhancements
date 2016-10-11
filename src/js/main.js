@@ -24,11 +24,12 @@ export function init(dom, context, config, mediator) {
 
 
   // Check if this is the callout page
-  if (window.location.href.indexOf('muncie-voters-tell-us-which-issues-will-decide-the-election')>0) {
+  if (window.location.href.indexOf('us-election-gary-younge-muncie-indiana')>0) {
     var isCalloutPage = true;
   } else {
     var isCalloutPage = false;
   }
+
 
 
   // timeout prevents a flash of unstyled elements
@@ -39,11 +40,11 @@ export function init(dom, context, config, mediator) {
 
     var atomItem = document.createElement("div");
     atomItem.classList.add('sidebar-atom');
-    atomItem.innerHTML = "<div class='text'><p><strong>The view from Middletown</strong>In this twice-weekly series ahead of the presidential election, Gary Younge spends a month in the mid-western town of Muncie, Indiana – traditionally viewed as emblematic of middle America. He’ll ask how this small town is dealing with this big moment, and what we can learn about the electorate’s view of the political class from citizens here, who voted for both Donald Trump and Bernie Sanders in the primaries. Gary is interested in what people might think, not just how they vote – and invites you to contribute to, guide and help shape this series.</p><a class='panel' href=''>Learn more about this series</a><a class='link' href='https://membership.theguardian.com/'>Support our journalism. Become a Member</a></div>";
+    atomItem.innerHTML = "<div class='text'><p><strong>The view from Middletown</strong>In this twice-weekly series ahead of the presidential election, Gary Younge spends a month in the mid-western town of Muncie, Indiana –  known as Middletown and traditionally viewed as emblematic of middle America. He’ll ask how this small town is dealing with this big moment, and what we can learn about the electorate’s view of the political class from citizens here, who voted for both Donald Trump and Bernie Sanders in the primaries. Gary is interested in what people might think, not just how they vote – and invites you to contribute to, guide and help shape this series.</p><a class='panel' href=''>Learn more about this series</a><a class='link' href='https://membership.theguardian.com/'>Support our journalism. Become a Member</a></div>";
 
     var linkItem = document.createElement("a");
     linkItem.classList.add('sidebar-issues');
-    linkItem.setAttribute('href', 'https://www.theguardian.com/membership/2016/oct/11/muncie-voters-tell-us-which-issues-will-decide-the-election');
+    linkItem.setAttribute('href', 'https://www.theguardian.com/membership/2016/oct/11/us-election-gary-younge-muncie-indiana');
     linkItem.innerHTML = 'The view from Middletown<br>How you can get involved with this project';
 
     var seriesPageItem = document.createElement("div");
@@ -52,7 +53,7 @@ export function init(dom, context, config, mediator) {
 
     var overlayItem = document.createElement("div");
     overlayItem.classList.add('sidebar-overlay');
-    overlayItem.innerHTML = "<div class='sidebar-overlay__overlay'></div><div class='sidebar-overlay__close'><svg width='42' height='42' viewBox='498 -4 42 42' xmlns='http://www.w3.org/2000/svg'><g fill='none' fill-rule='evenodd' transform='translate(498 -4)'><circle fill='#FFF' cx='21' cy='21' r='21'/><path fill='#00456E' d='M21.02 23.04l8.7 7.96L31 29.7 23.06 21 31 12.3 29.7 11l-8.68 7.96-8.73-7.93-1.3 1.3L18.96 21 11 29.68l1.3 1.3'/></g></svg></div><div class='sidebar-overlay__page'><iframe class='series-page' src='https://preview.gutools.co.uk/membership/ng-interactive/2016/oct/11/the-view-from-middletown-why-are-we-covering-this-strory?mode=panel#noads'></iframe></div>";
+    overlayItem.innerHTML = "<div class='sidebar-overlay__overlay'></div><div class='sidebar-overlay__close'><svg width='42' height='42' viewBox='498 -4 42 42' xmlns='http://www.w3.org/2000/svg'><g fill='none' fill-rule='evenodd' transform='translate(498 -4)'><circle fill='#FFF' cx='21' cy='21' r='21'/><path fill='#00456E' d='M21.02 23.04l8.7 7.96L31 29.7 23.06 21 31 12.3 29.7 11l-8.68 7.96-8.73-7.93-1.3 1.3L18.96 21 11 29.68l1.3 1.3'/></g></svg></div><div class='sidebar-overlay__page'><iframe class='series-page' src='https://www.theguardian.com/membership/ng-interactive/2016/oct/11/view-middletown-gary-younge-us-presidential-election'></iframe></div>";
 
     // to-do update with spreadsheet text
     var newsletterItem = document.createElement("div");

@@ -482,3 +482,9 @@ body.series-page-overlay-on {
 		width:130px;
 	}
 }
+
+.immersive-header-container--explore-series.explore-video-container{
+	@include mq($until: mobileLandscape){
+		min-height: 544px !important;
+	}
+}
