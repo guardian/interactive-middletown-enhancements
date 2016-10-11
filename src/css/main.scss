@@ -84,7 +84,7 @@ figure.element-interactive[data-interactive$="enhance-middletown/boot.js"] {
 		margin-top: -8px;
 	}
 	@include mq(desktop) {
-		// margin-top: -8px;
+		z-index: 1;
 		float: none;
 		position: absolute;
     transform: translateX(640px);
