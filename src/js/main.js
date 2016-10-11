@@ -76,6 +76,28 @@ export function init(dom, context, config, mediator) {
       link.setAttribute('href', 'https://www.theguardian.com/membership/ng-interactive/2016/oct/11/view-middletown-gary-younge-us-presidential-election');
     });
 
+    // needs testing
+    // var openSidepanelAll = document.querySelectorAll('[data-open-sidepanel]');
+    // [].forEach.call(openSidepanelAll, function(openSidepanel) {
+    //   openSidepanel.onclick = function() {
+    //     if (is_touch_device()) {
+    //       window.location = 'https://www.theguardian.com/membership/ng-interactive/2016/oct/11/view-middletown-gary-younge-us-presidential-election';
+    //     } else {
+    //       document.querySelector('body').classList.add('series-page-overlay-on');
+    //     }
+    //   }
+    // });
+    //
+    // var closeSidepanelAll = document.querySelectorAll('[data-close-sidepanel]');
+    // [].forEach.call(closeSidepanelAll, function(closeSidepanel) {
+    //   closeSidepanel.onclick = function() {
+    //     document.querySelector('body').classList.remove('series-page-overlay-on');
+    //   }
+    // });
+
+
+    // delete from here:
+
     document.querySelector('.series-page-link .why').onclick = function() {
       if (is_touch_device()) {
         window.location = 'https://www.theguardian.com/membership/ng-interactive/2016/oct/11/view-middletown-gary-younge-us-presidential-election';
@@ -99,6 +121,8 @@ export function init(dom, context, config, mediator) {
     document.querySelector('.sidebar-overlay__close').onclick = function() {
       document.querySelector('body').classList.remove('series-page-overlay-on');
     }
+
+    // delete until here --
 
   }, 100);
 
