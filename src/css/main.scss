@@ -436,7 +436,9 @@ body.series-page-overlay-on {
 		p {
 			margin: 0;
 		}
-		a {
+		a,
+		span {
+			cursor: pointer;
 			display: block;
 			margin: 10px 0 0;
 			font-weight: 600;
