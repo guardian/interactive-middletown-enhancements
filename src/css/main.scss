@@ -157,7 +157,7 @@ figure.element-interactive[data-interactive$="enhance-middletown/boot.js"] {
 		transition: all 200ms;
 		position: fixed;
 		z-index: 100;
-		background-color: rgba(51,51,51,0.95);
+		background-color: rgba(51,51,51,0.9);
 		top: 0;
 		left: 0;
 		right: 0;
@@ -427,7 +427,8 @@ body.series-page-overlay-on {
 		position: relative;
 		z-index: 12;
 		p,
-		a {
+		a,
+		.panel {
 			color: #f6f6f6;
 			font-family: 'Guardian Text Sans Web',sans-serif;
 			font-size: 16px;
