@@ -30,8 +30,6 @@ export function init(dom, context, config, mediator) {
     var isCalloutPage = false;
   }
 
-
-
   // timeout prevents a flash of unstyled elements
   setTimeout(function() {
     var textBody = document.querySelector('.content__article-body');
