@@ -27,9 +27,8 @@ export function init(dom, context, config, mediator) {
           }
 
           function returnPart(){
-            var link = data.sheets.Sheet1[i].Link.split('/');
-            console.log(link[3]);
             for(var i = 0; i < data.sheets.Sheet1.length; i++) {
+              var link = data.sheets.Sheet1[i].Link.split('/');
                 if (window.location.href === data.sheets.Sheet1[i].Link) {
                     var part = i + 1;
                     return part;
