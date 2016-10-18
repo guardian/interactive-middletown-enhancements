@@ -2,6 +2,7 @@ import reqwest from 'reqwest'
 import mainHTML from './text/main.html!text'
 import share from './lib/share'
 
+
 var shareFn = share('Interactive title', 'http://gu.com/p/URL', '#Interactive');
 var el;
 var data;
@@ -36,7 +37,29 @@ export function init(dom, context, config, mediator) {
             }
           }
 
-          var date = data.sheets.Sheet1[comingSoonIndex].Date;
+          var date_raw = data.sheets.Sheet1[comingSoonIndex].Date;
+          var manual_dates = {
+            '11/10/16': 'Tuesday 11 October',
+            '13/10/16': 'Thursday 13 October',
+            '18/10/16': 'Tuesday 18 October',
+            '20/10/16': 'Thursday 20 October',
+            '25/10/16': 'Tuesday 25 October',
+            '27/10/16': 'Thursday 27 October',
+            '01/11/16': 'Tuesday 1 November',
+            '03/11/16': 'Thursday 3 November',
+            '08/11/16': 'Tuesday 8 November',
+            '10/11/16': 'Thursday 10 November'
+          };
+
+          if (date_raw in manual_dates) {
+            var date = manual_dates[date_raw];
+          } else {
+            var date_raw = date_raw.split('/');
+            var months = ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            var date = date_raw[0] + ' ' + months[date_raw[1]];
+          }
+
+
           var comingSoon = "<h5>Coming on " + date + "</h5>" + data.sheets.Sheet1[comingSoonIndex].Description;
           initPageElements(comingSoon, returnPart());
       }
@@ -144,7 +167,5 @@ export function init(dom, context, config, mediator) {
     }
 
   }
-
-
 
 }

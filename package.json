@@ -27,9 +27,11 @@
   "jspm": {
     "configFile": "src/js/config.js",
     "dependencies": {
+      "dateformat": "npm:dateformat@^1.0.12",
       "guardian/iframe-messenger": "github:guardian/iframe-messenger@master",
       "handlebars": "github:components/handlebars.js@^4.0.5",
       "json": "github:systemjs/plugin-json@^0.1.0",
+      "momentjs": "npm:momentjs@^1.1.17",
       "reqwest": "github:ded/reqwest@^1.1.5",
       "text": "github:systemjs/plugin-text@^0.0.2"
     },
