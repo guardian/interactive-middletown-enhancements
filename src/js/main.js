@@ -62,13 +62,21 @@ export function init(dom, context, config, mediator) {
 
           var comingSoon = "<h5>Coming on " + date + "</h5>" + data.sheets.Sheet1[comingSoonIndex].Description;
           initPageElements(comingSoon, returnPart());
+          isPhotoEssay();
       }
   });
 
-
+  function isPhotoEssay(){
+    var photoEssay = false;
+    if(document.querySelector('.element-image.element--immersive')){
+      document.body.setAttribute('data-photo-essay', 'isPhotoEssay');
+      photoEssay = true;
+    }
+    return photoEssay;
+  }
 
   function isCalloutPage() {
-    var callouts = ['muncie-photos-memories-indiana', 'us-election-gary-younge-muncie-indiana'];
+    var callouts = ['muncie-photos-memories-indiana', 'us-election-gary-younge-muncie-indiana', 'middletown-muncie-factories-photo-essay-midwest'];
     var callout = false;
 
     callouts.forEach(function(c) {
@@ -111,12 +119,17 @@ export function init(dom, context, config, mediator) {
 
     if (!isCalloutPage()) {
       textBody.insertBefore(atomItem, textBody.childNodes[10]);
+      textBody.insertBefore(linkItem, textBody.childNodes[20]);
       textBody.insertBefore(newsletterItem, textBody.childNodes[textBody.childNodes.length]);
       headlineContainer.appendChild(seriesPageItem);
       textBody.insertBefore(overlayItem, textBody.childNodes[0]);
-      textBody.insertBefore(linkItem, textBody.childNodes[20]);
-
       // document.querySelector('.content__standfirst--explore').classList.add('quote');
+    }else if(isPhotoEssay()){
+      textBody.insertBefore(newsletterItem, textBody.childNodes[textBody.childNodes.length]);
+      headlineContainer.appendChild(seriesPageItem);
+      textBody.insertBefore(overlayItem, textBody.childNodes[0]);
+    }else{
+      textBody.insertBefore(newsletterItem, textBody.childNodes[textBody.childNodes.length]);
     }
 
     optional_add_quotes_to_standfirst(["'", '"', '’', '‘', '“', '”']);
