@@ -155,6 +155,14 @@ export function init(dom, context, config, mediator) {
         || navigator.maxTouchPoints;       // works on IE10/11 and Surface
   };
 
+  function replaceElement(list, text, element) {
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].textContent.toLowerCase()==text) {
+        console.log(text);
+        list[i].parentNode.replaceChild(element, list[i]);
+      }
+    }
+  }
 
   function optional_add_quotes_to_standfirst(quotes) {
     var standfirst = document.querySelector('.content__standfirst--explore');
